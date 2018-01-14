@@ -1,0 +1,16 @@
+<div class="container">
+
+  <div class="list-group" *ngIf="stockList && stockList.length > 0">
+    <ng-container *ngFor="let stock of stockList">
+      <a class="list-group-item" *ngIf="stock.amount > 0" [routerLink]="'/realtime/detail/' + stock['_id']"
+         (click)="saveStockDetail(stock)">
+        <p><span><strong>名称：{{ stock.shortName }}</strong></span>  <span class="right">股票代码：{{ stock.id }}</span></p>
+        <p>持有日期：<span>{{ stock.date }}</span> <span class="right">持有数量：{{ stock.amount }}</span></p>
+      </a>
+    </ng-container>
+
+  </div>
+
+  <app-no-content *ngIf="!stockList || stockList.length <= 0"></app-no-content>
+
+</div>

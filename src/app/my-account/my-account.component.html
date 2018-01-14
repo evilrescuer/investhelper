@@ -1,0 +1,12 @@
+<div class="hero-image">
+  <p class="head"><img src="assets/images/account/head4.png" alt=""></p>
+  <p class="name">Zhimao Lin</p>
+  <p class="date">Jan 3, 2018 10:15</p>
+  <div class="money">
+    <span>{{ myAccount.balance }} {{ myAccount.unit }}</span>
+  </div>
+</div>
+<div class="container">
+  <button type="button" class="btn btn-primary btn-lg btn-block" [routerLink]="'/account/my-stock-list'">持有股票</button>
+  <button type="button" class="btn btn-default btn-lg btn-block" [routerLink]="'/account/trade-history'">交易历史</button>
+</div>

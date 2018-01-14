@@ -1,0 +1,20 @@
+<!--头部-->
+<div class="header" id="app-header">
+  {{ title }}
+</div>
+
+<!--内容-->
+<div class="content" id="app-content">
+  <router-outlet></router-outlet>
+</div>
+
+<!--导航-->
+<div class="tabbar" id="app-tabbar">
+  <div *ngFor="let item of navBarData; let idx = index;" (click)="selectedIndex = idx" [routerLink]="item.routerLink || ''">
+    <img [hidden]="selectedIndex != idx" src="{{ item.iconURLHighLight }}" alt="">
+    <img [hidden]="selectedIndex == idx" src="{{ item.iconURLNormal }}" alt="">
+    <div>{{ item.text }}</div>
+  </div>
+</div>
+
+

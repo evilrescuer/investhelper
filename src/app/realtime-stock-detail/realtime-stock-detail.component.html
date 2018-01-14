@@ -1,0 +1,50 @@
+<div class="container" *ngIf="stockDetail">
+
+  <ul class="nav nav-tabs btns">
+    <li role="presentation" [ngClass]="{'active': buyFlag}" (click)="buyFlag = true" #buyBtn><a>买 入</a></li>
+    <li role="presentation" [ngClass]="{'active': !buyFlag}" (click)="buyFlag = false" *ngIf="myHoldAmount > 0"><a>卖 出</a></li>
+
+    <button type="button" class="btn btn-success attentionBtn" (click)="addAttention()" *ngIf="!attentionFlag">观 察</button>
+    <button type="button" class="btn btn-warning attentionBtn" (click)="removeAttention()" *ngIf="attentionFlag">取消观察</button>
+  </ul>
+
+  <form class="form-inline">
+    <div class="form-group">
+      <label for="exampleInputName2" class="form-inline">单价</label>
+      <input type="text" class="form-control form-inline" id="exampleInputName2" value="{{ stockDetail.currPrice || 0 }}" disabled #price>
+    </div>
+    <div class="form-group">
+      <div *ngIf="!(myHoldAmount > 0)">
+        <label>未持有</label>
+      </div>
+      <ng-container *ngIf="myHoldAmount > 0">
+        <label for="exampleInputEmail2">已持有</label>
+        <input type="number" class="form-control" id="exampleInputEmail2" placeholder="数字" value="{{ myHoldAmount }}" #holdAmount disabled>
+      </ng-container>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail3">
+        <span>{{ buyFlag ? '购买' : '卖出' }}</span>数量</label>
+      <input type="number" class="form-control" id="exampleInputEmail3" placeholder="数字" #amount>
+    </div>
+    <button type="submit" class="btn btn-block btn-success" (click)="buyOrSellStock(stockId)" *ngIf="buyFlag">确认购买</button>
+    <button type="submit" class="btn btn-block btn-warning" (click)="buyOrSellStock(stockId)" *ngIf="!buyFlag">确认卖出</button>
+  </form>
+
+
+  <div class="stockPannel">
+
+    <p>股票代码： {{ stockDetail._id || '无' }}</p>
+    <p>名称： <strong>{{ stockDetail.shortName || '无' }}</strong></p>
+    <p>当前价格： <span class="price">{{ stockDetail.currPrice || '无' }}$</span></p>
+    <p>涨跌百分比： <strong>{{ stockDetail.zdf || '0' }}%</strong></p>
+    <p>成交量： {{ stockDetail.dealNum || '无' }}</p>
+    <p>成交额： {{ stockDetail.dealPri || '无' }}</p>
+    <p>最高： {{ stockDetail.currPrice + 15 || '无' }}</p>
+    <p>最低： {{ stockDetail.lowpri - 6 || '无' }}</p>
+    <p>今开： {{ stockDetail.openPri || '无' }}</p>
+    <p>时间： {{ stockDetail.time || '无' }}</p>
+    <p>昨收： {{ stockDetail.yesPri || '无' }}</p>
+
+  </div>
+</div>

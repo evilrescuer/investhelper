@@ -1,0 +1,17 @@
+{
+  "error_code": 0,
+  "reason": "SUCCESSED!",
+  "result": {
+    "dealNum": "174063404",
+    "dealPri": "215961455748",
+    "highPri": "3435.4239",
+    "increPer": "0.10",
+    "increase": "3.5958",
+    "lowpri": "3417.9802",
+    "name": "上证指数",
+    "nowpri": "3428.9407",
+    "openPri": "3423.8793",
+    "time": "2018-01-12 15:01:03",
+    "yesPri": "3425.3449"
+  }
+}

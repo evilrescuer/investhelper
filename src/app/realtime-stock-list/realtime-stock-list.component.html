@@ -1,0 +1,27 @@
+<div class="container">
+
+  <div class="fixed-search">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="股票..." (keyup.enter)="searchRealtimeStockList()" #textInput>
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button" (click)="searchRealtimeStockList()">搜索</button>
+      </span>
+    </div>
+  </div>
+
+  <div class="list-group" *ngIf="stockList && stockList.length > 0" id="app-realtime-content">
+    <a href="#" class="list-group-item" *ngFor="let stock of stockList" (click)="goToStockDetail(stock)" [routerLink]="'/realtime/detail/' + stock['_id']">
+      <span>{{ stock.shortName }}（{{ stock._id }}）</span>
+      <span class="price">{{ stock.currPrice }}$</span>
+      <span class="right price-zf">{{ stock.zdf  }}%</span>
+    </a>
+    <div>
+
+    </div>
+  </div>
+
+  <app-no-content *ngIf="!stockList || stockList.length <= 0" [imageURL]="'../../assets/images/no_searchresult.png'"></app-no-content>
+
+
+
+</div>

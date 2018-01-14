@@ -1,0 +1,40 @@
+<div class="container">
+
+  <ul class="nav nav-tabs">
+    <li role="presentation" [ngClass]="{'active': textFlag}" (click)="textFlag = true"><a>文本模式</a></li>
+    <li role="presentation" [ngClass]="{'active': !textFlag}" (click)="textFlag = false"><a>图表模式</a></li>
+  </ul>
+
+  <div class="list-group" [hidden]="!textFlag">
+    <a class="list-group-item" *ngFor="let trade of tradeList">
+      <p>时间：<span>{{ trade.date }} {{ trade.time }}</span>
+        <span class="right" *ngIf="trade.operaType == 1">买入</span>
+        <span class="right" *ngIf="trade.operaType == 2">出售</span>
+      </p>
+      <span class="right">数量：{{ trade.amount }}</span>
+      <p><span><strong>{{ trade.shortName }}</strong> ({{ trade.stockId }})</span></p>
+    </a>
+
+  </div>
+
+  <div [ngClass]="{ 'noDisplay': (textFlag || (stockList && stockList.length > 0)) }">
+    <div class="chartItem">
+      <p class="chart-title">我的股票交易数量：</p>
+      <div class="chart" id="chart1"></div>
+    </div>
+
+    <div class="chartItem">
+      <p class="chart-title">我的账单：</p>
+      <div class="chart" id="chart2"></div>
+    </div>
+
+    <div class="chartItem">
+      <p class="chart-title">我的余额：</p>
+      <div class="chart" id="chart3"></div>
+    </div>
+  </div>
+
+  <app-no-content *ngIf="!tradeList || tradeList.length <= 0"></app-no-content>
+
+
+</div>

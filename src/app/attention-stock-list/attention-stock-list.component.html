@@ -1,0 +1,19 @@
+<div class="container">
+
+  <div class="list-group" *ngIf="stockList && stockList.length > 0">
+    <a class="list-group-item attentionItem" *ngFor="let stock of stockList; let idx = index" [routerLink]="'/realtime/detail/' + stock['_id']"
+    (click)="saveStockDetail(stock)">
+      <span class="name">{{ stock.shortName }} ({{ stock._id }}) </span>
+      <span> {{ stock.ZRSP }}</span>
+      <span> {{ stock.zdf  }}%</span>
+      <button type="button" class="btn btn-warning" (click)="removeAttention(stock._id, idx)">取消观察</button>
+    </a>
+    <div>
+
+    </div>
+  </div>
+
+  <app-no-content *ngIf="!stockList || stockList.length <= 0" [imageURL]="'../../assets/images/no_friend.png'"></app-no-content>
+
+
+</div>
