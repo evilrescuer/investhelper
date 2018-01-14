@@ -1,3 +1,20 @@
+一、Download Git
+1.  git clone https://github.com/evilrescuer/investhelper.git
+2.  cd investhelper, and run "npm install"
+
+二、Ways to have a look
+1. on PC-Chrome Mobile-simulator
+    1) npm start
+2. on Mobile
+    1) ng serve --base-href /investhelper --open --host [YourIP]
+    
+
+
+
+
+
+
+
 # Investhelper
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.4.
