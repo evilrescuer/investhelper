@@ -26,6 +26,7 @@ export class TradeHistoryComponent implements OnInit {
   }
 
   ngOnInit() {
+    $('.app-chart').width($(window).width() - 40); 
     this.tradeList = this.http.queryTradeHistory();
 
     this.initChartData1();
