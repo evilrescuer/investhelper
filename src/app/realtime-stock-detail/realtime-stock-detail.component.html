@@ -34,7 +34,7 @@
 
   <div class="stockPannel">
 
-    <p>股票代码： {{ stockDetail._id || '无' }}</p>
+    <p>股票代码： {{ stockId || '无' }}</p>
     <p>名称： <strong>{{ stockDetail.shortName || '无' }}</strong></p>
     <p>当前价格： <span class="price">{{ stockDetail.currPrice || '无' }}$</span></p>
     <p>涨跌百分比： <strong>{{ stockDetail.zdf || '0' }}%</strong></p>

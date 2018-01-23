@@ -54,11 +54,16 @@ export class AttentionStockListComponent implements OnInit {
   /**
    * 取消观察
    */
-  removeAttention(_id, idx) {
+  removeAttention(event, _id, idx) {
+    event.stopPropagation();  //阻止冒泡
+    event.preventDefault();   //取消默认行为
+
     // this.stockList.splice(idx, 1);
     // APP.RemoveFromLocalStorage('attentionIdStr', _id);
+
     this.stockList.splice(idx, 1);
     this.http.removeAttentionById(_id);
+
   }
 
   saveStockDetail(stock) {

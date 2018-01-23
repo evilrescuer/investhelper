@@ -6,7 +6,7 @@
       <span class="name">{{ stock.shortName }} ({{ stock._id }}) </span>
       <span> {{ stock.ZRSP }}</span>
       <span> {{ stock.zdf  }}%</span>
-      <button type="button" class="btn btn-warning" (click)="removeAttention(stock._id, idx)">取消观察</button>
+      <button type="button" class="btn btn-warning" (click)="removeAttention($event, stock._id, idx)">取消观察</button>
     </a>
     <div>
 

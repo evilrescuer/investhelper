@@ -30,6 +30,7 @@ export class MyStockListComponent implements OnInit {
   }
 
   saveStockDetail(stock) {
+
     //模拟造价-当前价格
     let currPrice = 5 + (Math.random() * 100);
     stock["currPrice"] = currPrice.toFixed(2);
